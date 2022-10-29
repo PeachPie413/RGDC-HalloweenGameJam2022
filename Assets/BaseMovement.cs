@@ -8,7 +8,7 @@ public class BaseMovement : MonoBehaviour
     public float moveSpeed = 4f;
 
     //Animation variables
-    Animato thisAnim;
+    Animator thisAnim;
     float lastX, lastY;
 
     // Start is called before the first frame update
@@ -25,10 +25,10 @@ public class BaseMovement : MonoBehaviour
 
     void Move()
     {
-        Vector3 rightMovement = Vector3.right * moveSpeed * time.dealtaTime * Input.GetAxis("Horizontal"); //might want to replace input
-        Vector3 upMovement = Vector3.up * moveSpeed * time.dealtaTime * Input.GetAxis("Vertical");
+        Vector3 rightMovement = Vector3.right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal"); //might want to replace input
+        Vector3 upMovement = Vector3.up * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
     
-         Vctor3 heading = Vector3.Normalize(rightMovement + upMovement);
+         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
          transform.position += rightMovement;
          transform.position += upMovement;
          UpdateAnimation(heading);
