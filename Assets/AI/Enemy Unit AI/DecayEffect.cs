@@ -12,7 +12,7 @@ public class DecayEffect : MonoBehaviour
     BaseUnit unit;
     float timeSinceLastDecay;
 
-    private void Start()
+    private void OnEnable()
     {
         unit = GetComponent<BaseUnit>();
     }
@@ -21,7 +21,7 @@ public class DecayEffect : MonoBehaviour
     {
         timeSinceLastDecay += Time.deltaTime;
 
-        if(timeSinceLastDecay > timeBetweenDecays)
+        if(timeSinceLastDecay > timeBetweenDecays && unit != null)
         {
             timeSinceLastDecay = 0;
             unit.TakeDamage(damagePerDecay);
