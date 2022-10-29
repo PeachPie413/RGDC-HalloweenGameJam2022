@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 2094722719}
   - component: {fileID: 2094722718}
   - component: {fileID: 2094722717}
+  - component: {fileID: 2094722720}
   m_Layer: 0
   m_Name: Base Minion
   m_TagString: Untagged
@@ -340,7 +341,7 @@ Animator:
   m_GameObject: {fileID: 2094722716}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 41465f9f13b95f54aa04d839e97b635b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 54dc168bb314a2243a98ebf32e58fc5b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -391,7 +392,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6000581766031926614, guid: 3d2f599474fd4b2994881f42880ea8c6, type: 3}
+  m_Sprite: {fileID: 7667639571242049443, guid: bdcf20ae532f4ef88d3b429b880553e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -417,3 +418,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2094722720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094722716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80090965f12a75541b2e927cfa29c4f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
