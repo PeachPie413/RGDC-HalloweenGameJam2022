@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 349334356}
   - component: {fileID: 349334360}
   - component: {fileID: 349334359}
+  - component: {fileID: 349334361}
   m_Layer: 6
   m_Name: Basic Enemy Unit
   m_TagString: Enemy Unit
@@ -265,6 +266,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &349334361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349334355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7166f9b267e6f7443976886d82f81cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenPathGeneration: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  targetSearchDist: 10
+  moveSpeed: 1
 --- !u!1 &916571237
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +656,7 @@ GameObject:
   - component: {fileID: 1966020292}
   - component: {fileID: 1966020294}
   - component: {fileID: 1966020295}
+  - component: {fileID: 1966020296}
   m_Layer: 7
   m_Name: Core Alien Unit
   m_TagString: Player
@@ -805,3 +825,21 @@ MonoBehaviour:
   corpseLayers:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &1966020296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966020288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7166f9b267e6f7443976886d82f81cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenPathGeneration: 3
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  targetSearchDist: 30
+  moveSpeed: 3

@@ -10,10 +10,12 @@ using UnityEngine.Tilemaps;
 public class PathCreator : MonoBehaviour
 {
     Tilemap tilemap;
+    public static PathCreator instance;
 
     private void Awake()
     {
         tilemap = GetComponent<Tilemap>();
+        instance = this;
     }
 
 
