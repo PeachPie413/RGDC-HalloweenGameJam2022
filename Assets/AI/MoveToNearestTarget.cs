@@ -22,6 +22,7 @@ public class MoveToNearestTarget : MonoBehaviour
     {
         pathCreator = PathCreator.instance;
         rb = GetComponent<Rigidbody2D>();
+        GetPath();
     }
 
 
@@ -31,17 +32,7 @@ public class MoveToNearestTarget : MonoBehaviour
 
         if (timeSinceLastPathGeneration > timeBetweenPathGeneration)
         {
-            timeSinceLastPathGeneration = 0;
-
-            Vector2 tagretPos = GetPosOfNearestEnemy();
-
-            //if target pos is pos infinity them nea sno tagret in range
-            if(tagretPos == Vector2.positiveInfinity)
-            {
-                path = new List<Vector2Int>();
-            }
-            else
-                path = pathCreator.GetPath(transform.position, tagretPos);
+            GetPath();
         }
 
         //try to remove node from path if it reached it
@@ -53,6 +44,20 @@ public class MoveToNearestTarget : MonoBehaviour
         FollowPath();
     }
 
+    void GetPath()
+    {
+        timeSinceLastPathGeneration = 0;
+
+        Vector2 tagretPos = GetPosOfNearestEnemy();
+
+        //if target pos is pos infinity them nea sno tagret in range
+        if (tagretPos == Vector2.positiveInfinity)
+        {
+            path = new List<Vector2Int>();
+        }
+        else
+            path = pathCreator.GetPath(transform.position, tagretPos);
+    }
 
     void FollowPath()
     {
