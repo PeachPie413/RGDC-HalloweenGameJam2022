@@ -7,16 +7,21 @@ public class PlaceUnitsUIController : MonoBehaviour
 {
     [SerializeField] GameObject coreAlienPF;
     [SerializeField] int numberCoreAliens;
-    GameObject currentlySelectedUnitPF;
+    [SerializeField] LayerMask enemyLayers;
+    [SerializeField] LayerMask wallLayers;
+    [SerializeField] float minDistFromEnemies, minDistFromWall;
     UIDocument uiDoc;
     bool uiOpen;
     List<GameObject> placedUnits = new List<GameObject>();
+    Label unitsLeftLabel;
 
 
     private void Start()
     {
         uiDoc = GetComponent<UIDocument>();
         uiDoc.rootVisualElement.Q<Button>("start-Button").clicked += StartGame;
+        unitsLeftLabel = uiDoc.rootVisualElement.Q<Label>("number-units-left");
+
         ShowUI();
         StopGame();
     }
@@ -26,22 +31,26 @@ public class PlaceUnitsUIController : MonoBehaviour
     {
         if (uiOpen)
         {
-            if (Input.GetMouseButtonDown(0) && !MouseOverButton())
+            if (Input.GetMouseButtonDown(0))
             {
-                PlaceUnitWhereClicked();
+                TryPlaceUnitWhereClicked();
             }
         }
     }
 
 
-    void PlaceUnitWhereClicked()
+    void TryPlaceUnitWhereClicked()
     {
+        //if player has units left
         if(numberCoreAliens <= 0)
         {
             return;
         }
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        //check if spot is a viable place to put unit
+        if (!CanPlaceUnitAtPoint(mousePos)) return;
 
         //create unit and disable pathfinding so they dont do anything
         GameObject createdUnit = Instantiate(coreAlienPF, mousePos, Quaternion.identity);
@@ -53,21 +62,30 @@ public class PlaceUnitsUIController : MonoBehaviour
     }
 
 
+    public bool CanPlaceUnitAtPoint(Vector2 point)
+    {
+        return (!MouseOverStartButton() && !EnemiesNearby(point) && !WallNearby(point));
+    }
 
-    bool MouseOverButton()
+
+    bool MouseOverStartButton()
     {
         Vector2 mousePos = Input.mousePosition;
 
-        foreach (VisualElement visualElement in uiDoc.rootVisualElement.Children())
-        {
-            if (visualElement.worldBound.Contains(mousePos))
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return uiDoc.rootVisualElement.Q<VisualElement>("start-Button").worldBound.Contains(mousePos);
     }
+
+
+    public bool EnemiesNearby(Vector2 placePos)
+    {
+        return Physics2D.CircleCast(placePos, minDistFromEnemies, Vector2.up, 0, enemyLayers);
+    }
+
+    public bool WallNearby(Vector2 placePos)
+    {
+        return Physics2D.CircleCast(placePos, minDistFromWall, Vector2.up, 0, wallLayers);
+    }
+
 
     public void StopGame()
     {
@@ -89,25 +107,18 @@ public class PlaceUnitsUIController : MonoBehaviour
         UpdateUI();
 
         placedUnits.Clear();
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public void HideUI()
     {
         uiDoc.rootVisualElement.visible = false;
         uiOpen = false;
-        uiDoc.rootVisualElement.Q<VisualElement>("unitButtons").Clear();
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public void UpdateUI()
     {
-        VisualElement buttonContainer = uiDoc.rootVisualElement.Q<VisualElement>("unitButtons");
-
-        buttonContainer.Clear();
-
-        Button coreAlienButton = new Button();
-        coreAlienButton.AddToClassList("UnitButton");
-        coreAlienButton.text = $"Alien, {numberCoreAliens} remaining";
-
-        buttonContainer.Add(coreAlienButton);
+        unitsLeftLabel.text = $"{numberCoreAliens} units left!";
     }
 }

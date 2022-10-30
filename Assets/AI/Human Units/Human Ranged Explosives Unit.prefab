@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9222707154238967207}
   - component: {fileID: 1786048099333485995}
   - component: {fileID: 215525182671762894}
+  - component: {fileID: 5621670130099991998}
   m_Layer: 6
   m_Name: Human Ranged Explosives Unit
   m_TagString: Untagged
@@ -198,3 +199,19 @@ MonoBehaviour:
   onShotFired:
     m_PersistentCalls:
       m_Calls: []
+--- !u!58 &5621670130099991998
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155987293312101006}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
