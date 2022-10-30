@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Placing%20Units/Placing%20Units%20Style%20Sheet.uss?fileID=7433441132597879392&amp;guid=456d2a1c14a767541a9a61c2a8e63d40&amp;type=3#Placing Units Style Sheet" />
+    <ui:VisualElement name="root" picking-mode="Ignore" style="flex-grow: 1; justify-content: flex-end; align-items: flex-end; flex-direction: row-reverse;">
+        <ui:Button display-tooltip-when-elided="false" name="start-Button" style="height: 200px; width: 200px; background-image: url(&apos;project://database/Assets/StoneUI/Buttons_512x512/Moss_Green/button_moss_green1.png?fileID=2800000&amp;guid=2c515502e486a5144b737191aa6bfbc7&amp;type=3#button_moss_green1&apos;); background-color: rgba(88, 88, 88, 0);" />
+        <ui:VisualElement name="unitButtons" style="flex-grow: 0.3; width: 50%; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px; justify-content: flex-end;" />
+    </ui:VisualElement>
+</ui:UXML>
