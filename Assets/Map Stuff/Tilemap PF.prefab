@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 5674110856852040629}
   - component: {fileID: 9145227979474751935}
   - component: {fileID: 8026388983703486427}
+  - component: {fileID: 6912381983427670381}
+  - component: {fileID: 3025645948344578100}
   m_Layer: 0
   m_Name: Middle Tilemap
-  m_TagString: Untagged
+  m_TagString: Middle Tilemap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +122,34 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &6912381983427670381
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40837133023012448}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
+--- !u!114 &3025645948344578100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40837133023012448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b624ac8439fe04490024b59746e345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &428995951055549314
 GameObject:
   m_ObjectHideFlags: 0
